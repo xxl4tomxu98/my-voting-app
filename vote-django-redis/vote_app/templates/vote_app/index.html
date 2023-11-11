@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +8,6 @@
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <meta name="keywords" content="docker-compose, docker, stack">
     <meta name="author" content="Tom's dev team">
-    {% load static %}
     <link rel='stylesheet' href="{% static 'stylesheets/style.css' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
@@ -16,6 +16,7 @@
       <div id="content-container-center">
         <h3>{{option_a}} vs {{option_b}}!</h3>
         <form id="choice" name='form' method="POST" action="/">
+          {% csrf_token %}
           <button id="a" type="submit" name="vote" class="a" value="a">{{option_a}}</button>
           <button id="b" type="submit" name="vote" class="b" value="b">{{option_b}}</button>
         </form>

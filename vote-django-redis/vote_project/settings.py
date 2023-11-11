@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# CORS and CSRF
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True # to accept cookies via ajax request
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000', # domains for front-end app(Frontend team should add) 
+]
+
 
 # Application definition
 
@@ -131,11 +138,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CACHES = {
     "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
-        },
-        "KEY_PREFIX": "vote"
+        "KEY_PREFIX": "vote",
+        "TIMEOUT": 60 * 15,  # in seconds: 60 * 15 (15 minutes)
     }
 }
+
+# Cache time to live is 15 minutes.
+CACHE_TTL = 60 * 15

@@ -5,4 +5,5 @@ obj/
 .vs/
 node_modules/
 .venv/
+venv/
 .DS_Store

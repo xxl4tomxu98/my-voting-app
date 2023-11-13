@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "LOCATION": "redis://127.0.0.1:6379/",
         "KEY_PREFIX": "vote",
         "TIMEOUT": 60 * 15,  # in seconds: 60 * 15 (15 minutes)
     }

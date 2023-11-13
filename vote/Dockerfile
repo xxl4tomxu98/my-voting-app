@@ -34,7 +34,7 @@ FROM base AS final
 COPY . .
 
 # Make port 8000 available for links and/or publish
-EXPOSE 8001
+EXPOSE 8000
 
 # Creates a non-root user with an explicit UID and adds permission to access the working folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers

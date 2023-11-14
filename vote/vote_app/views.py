@@ -24,9 +24,10 @@ def home(request):
     
     voter_id = request.COOKIES.get('voter_id')
     if not voter_id:
-        voter_id = hex(random.getrandbits(64))[2:-1] 
+        voter_id = hex(random.getrandbits(64))[2:-1]
 
     vote = None
+
     if request.method == 'POST':
         vote = request.POST.get('vote')
         data = json.dumps({'voter_id': voter_id, 'vote': vote})

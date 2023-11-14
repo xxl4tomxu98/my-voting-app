@@ -24,7 +24,7 @@ services:
   vote:
     image: dockersamples/my-voting-app-vote
     ports:
-      - 5002:80
+      - 8000:80
     networks:
       - frontend
     deploy:

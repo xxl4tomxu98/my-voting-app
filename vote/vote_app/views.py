@@ -7,14 +7,15 @@ import os
 import json
 import socket
 import random
+from django_redis import get_redis_connection
 
 
 option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
 hostname = socket.gethostname()
-
-
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
+con = get_redis_connection("default")
 
 
 @cache_page(CACHE_TTL)
